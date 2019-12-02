@@ -29,7 +29,7 @@ fn part_one(puzzle: &mut [usize]) -> usize {
     return puzzle_copy[0];
 }
 
-fn part_two(puzzle: &mut [usize]) -> usize {
+fn part_two(puzzle: &mut [usize]) -> i32 {
     let mut noun = 0;
     let mut verb = 0;
     while part_one(puzzle) != 19690720 {
@@ -41,6 +41,9 @@ fn part_two(puzzle: &mut [usize]) -> usize {
         }
         puzzle[1] = noun;
         puzzle[2] = verb;
+        if verb == 100 {
+            return -1;
+        }
     }
-    return 100 * puzzle[1] + puzzle[2];
+    return 100 * puzzle[1] as i32 + (puzzle[2] as i32);
 }
